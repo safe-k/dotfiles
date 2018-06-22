@@ -3,7 +3,7 @@
 echo "Staring installation.."
 
 # Path
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Homebrew
 ## Install Homebrew if it doesn't exist
@@ -17,11 +17,13 @@ fi
 brew update
 
 # Source installation scripts in subdirectories
-for directory in $DOTFILES_DIR/*; do
+for directory in $DIR/*; do
     if [ -d "$directory" ]; then
         for file in $(find $directory -type f -name "install.sh"); do
             source $file
         done
     fi
 done
+
+echo "Installation complete."
 
