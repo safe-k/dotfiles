@@ -11,6 +11,8 @@ git clone git@github.com:safe-k/dotfiles.git ~/.dotfiles
 source ~/.dotfiles/install.sh
 ```
 
+On installation, you will be prompted to enter your Git credentials to be set globally.
+
 ## Local Profiles
 
 Local profiles can be created in the root directory (`~/*`) for the following:
