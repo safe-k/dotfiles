@@ -19,8 +19,11 @@ fi
 # Prompt (Note: This is done after GIT installation in order to use the __git_ps1 variable)
 export PS1="\[\033[1;33m\]\W \[\033[1;34m\]\$(__git_ps1 '(%s)')\[\033[1;33m\] >\[\033[0m\] "
 
-# Load aliases
-source ~/.dotfiles/bash/.aliases
+# Aliases
+## Bash
+alias bashrld="source ~/.bash_profile"
+## Git
+alias gs="git status"
 
 # Load Local bash profile (Note: This is done last in order to allow overrides)
 if [ -f ~/.bash_profile.local ]; then

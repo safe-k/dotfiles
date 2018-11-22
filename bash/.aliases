@@ -1,6 +1,0 @@
-# Bash
-alias bashrld="source ~/.bash_profile"
-
-# Git
-alias gs="git status"
-
