@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 echo "Setting up Git.."
 
 # Check if Git is installed. If not, install it
@@ -10,24 +9,28 @@ if [ $GIT_IS_AVAILABLE -eq 0 ]; then
     brew install git
 fi
 
-echo "Configuring Git..."
-
 # Configure Git
-echo "Username: "
-read username
-git config --global github.user $username
+read -p "Configure Git? " -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo "Configuring Git..."
 
-echo "Name: "
-read name
-git config --global user.name $name
+    echo "Username: "
+    read username
+    git config --global github.user $username
 
-echo "Email: "
-read email
-git config --global user.email $email
+    echo "Name: "
+    read name
+    git config --global user.name $name
 
-git config --global core.editor "vim"
-git config --global core.autocrlf "input"
-git config --global help.autocorrect "1"
+    echo "Email: "
+    read email
+    git config --global user.email $email
+
+    git config --global core.editor "vim"
+    git config --global core.autocrlf "input"
+    git config --global help.autocorrect "1"
+fi
 
 # Install command line auto completion
 brew install bash-completion
