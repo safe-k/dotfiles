@@ -25,6 +25,18 @@ alias bashrld="source ~/.bash_profile"
 ## Git
 alias gs="git status"
 
+# Functions
+## Bash
+pathmunge () {
+        if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)" ; then
+           if [ "$2" = "after" ] ; then
+              PATH="$PATH:$1"
+           else
+              PATH="$1:$PATH"
+           fi
+        fi
+}
+
 # Load Local bash profile (Note: This is done last in order to allow overrides)
 if [ -f ~/.bash_profile.local ]; then
     source ~/.bash_profile.local
