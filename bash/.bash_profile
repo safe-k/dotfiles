@@ -17,7 +17,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # Prompt (Note: This is done after GIT installation in order to use the __git_ps1 variable)
-export PS1="\[\033[1;33m\]\W \[\033[1;34m\]\$(__git_ps1 '(%s)')\[\033[1;33m\] >\[\033[0m\] "
+export PS1="\[\033[1;33m\]\W\[\033[1;34m\]\$(__git_ps1 ' (%s)')\[\033[1;33m\] >\[\033[0m\] "
 
 # Aliases
 ## Bash
