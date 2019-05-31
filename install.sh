@@ -26,4 +26,3 @@ for directory in $DIR/*; do
 done
 
 echo "Installation complete."
-

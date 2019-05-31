@@ -8,4 +8,3 @@ ln -sfv "$DIR/.bash_profile" ~
 
 # Load new profile
 source ~/.bash_profile
-

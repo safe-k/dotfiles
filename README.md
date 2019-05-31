@@ -21,4 +21,3 @@ Local profiles can be created in the root directory (`~/*`) for the following:
 | -------------- | ----------------------- |
 | .bash\_profile | .bash\_profile.local    |
 | .vimrc         | .vimrc.local            |
-

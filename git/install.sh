@@ -34,4 +34,3 @@ fi
 
 # Install command line auto completion
 brew install bash-completion
-
