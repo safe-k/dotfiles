@@ -30,6 +30,9 @@ alias bashrld="source ~/.bash_profile"
 alias localip="ipconfig getifaddr en0"
 alias path='echo -e ${PATH//:/\\n}'
 
+### Tree
+alias lst="tree -a -L 1 ."
+
 ## Git
 alias gs="git status"
 
