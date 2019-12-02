@@ -3,15 +3,25 @@
 # Path
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Install useful bash tools
+# Install useful tools
 
-alias bi="brew list $1 || brew install $1"
+## Brew
 
-## Tree https://formulae.brew.sh/formula/tree
-bi tree
+### Tree https://formulae.brew.sh/formula/tree
+brew install tree
 
-# Symlink profile
+## Curl (bin)
+
+### Nav https://github.com/safe-k/nav
+$(cd "$DIR/../bin" && curl -OJ https://raw.githubusercontent.com/safe-k/nav/master/nav)
+
+# Symlink
+
+## profile
 ln -sfv "$DIR/.bash_profile" ~
+
+## bin
+ln -sfv "$DIR/../bin" ~
 
 # Load new profile
 source ~/.bash_profile

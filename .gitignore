@@ -1,2 +1,7 @@
+# Development
 .idea
 .DS_Store
+
+# Scripts
+bin/*
+!bin/.gitkeep
