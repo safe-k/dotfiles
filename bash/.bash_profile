@@ -32,13 +32,17 @@ export PS1="\[\033[1;33m\]\W\[\033[1;34m\]\$(__git_ps1 ' (%s)')\[\033[1;33m\] >\
 ## Bash
 alias bashrld="source ~/.bash_profile"
 alias localip="ipconfig getifaddr en0"
-alias path='echo -e ${PATH//:/\\n}'
+alias path="echo -e ${PATH//:/\\n}"
+alias loadtest="ab -n 100 -c 20 $1"
+alias ddos="ab -n 1000 -c 50 $1"
 
 ### Tree
 alias lst="tree -C -a -L 1 $1"
 
 ## Git
 alias gs="git status"
+alias gc="git checkout $1"
+alias gcb="git checkout -b $1"
 
 # Functions
 
