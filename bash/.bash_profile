@@ -41,8 +41,10 @@ alias lst="tree -C -a -L 1 $1"
 
 ## Git
 alias gs="git status"
+alias gb="git branch"
 alias gc="git checkout $1"
 alias gcb="git checkout -b $1"
+alias gcm="git checkout master"
 
 # Functions
 
