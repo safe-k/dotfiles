@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # History
 
 ## Bind arrow keys to history search functions
