@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Path
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Install useful tools
 

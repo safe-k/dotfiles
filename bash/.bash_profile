@@ -3,10 +3,9 @@
 # History
 
 ## Bind arrow keys to history search functions
-if [[ $- == *i* ]]
-then
-    bind '"\e[A": history-search-backward'
-    bind '"\e[B": history-search-forward'
+if [[ $- == *i* ]]; then
+  bind '"\e[A": history-search-backward'
+  bind '"\e[B": history-search-forward'
 fi
 
 ## Infinite history
@@ -18,8 +17,8 @@ export HISTCONTROL=ignoredups:erasedups
 # Git
 
 ## Load command line auto completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    source `brew --prefix`/etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
 fi
 
 # Nav
@@ -56,17 +55,17 @@ __git_complete gcm _git_checkout
 # Functions
 
 ## Bash
-pathmunge () {
-        if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)" ; then
-           if [ "$2" = "after" ] ; then
-              PATH="$PATH:$1"
-           else
-              PATH="$1:$PATH"
-           fi
-        fi
+pathmunge() {
+  if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)"; then
+    if [ "$2" = "after" ]; then
+      PATH="$PATH:$1"
+    else
+      PATH="$1:$PATH"
+    fi
+  fi
 }
 
-f () {
+f() {
   local path
   [[ -z "${1}" ]] && path="." || path="${1}"
 
@@ -80,5 +79,5 @@ f () {
 
 # Load Local bash profile (Note: This is done last in order to allow overrides)
 if [ -f ~/.bash_profile.local ]; then
-    source ~/.bash_profile.local
+  source ~/.bash_profile.local
 fi
