@@ -15,15 +15,15 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Configuring Git..."
 
   echo "Username: "
-  read username
+  read -r username
   git config --global github.user $username
 
   echo "Name: "
-  read name
+  read -r name
   git config --global user.name $name
 
   echo "Email: "
-  read email
+  read -r email
   git config --global user.email $email
 
   git config --global core.editor "vim"
