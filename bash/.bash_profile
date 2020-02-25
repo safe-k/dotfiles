@@ -66,6 +66,18 @@ pathmunge () {
         fi
 }
 
+f () {
+  local path
+  [[ -z "${1}" ]] && path="." || path="${1}"
+
+  local file
+  file="$(find "${path}" -type f | fzf)"
+
+  if [ ! "${file}" = "" ]; then
+    vim "${file}"
+  fi
+}
+
 # Load Local bash profile (Note: This is done last in order to allow overrides)
 if [ -f ~/.bash_profile.local ]; then
     source ~/.bash_profile.local

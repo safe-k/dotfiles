@@ -10,6 +10,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ### Tree https://formulae.brew.sh/formula/tree
 brew install tree
 
+### fzf https://github.com/junegunn/fzf
+brew install fzf
+
 ## Curl (bin)
 
 ### Nav https://github.com/safe-k/nav
