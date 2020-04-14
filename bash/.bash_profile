@@ -65,6 +65,10 @@ pathmunge() {
   fi
 }
 
+function cpb () {
+    "$@" | pbcopy
+}
+
 f() {
   local path
   [[ -z "${1}" ]] && path="." || path="${1}"
