@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export EDITOR=vim
+
 # History
 
 ## Bind arrow keys to history search functions
