@@ -35,7 +35,6 @@ export PS1="\[\033[1;33m\]\W\[\033[1;34m\]\$(__git_ps1 ' (%s)')\[\033[1;33m\] >\
 ## Bash
 alias bashrld="source ~/.bash_profile"
 alias localip="ipconfig getifaddr en0"
-alias path="echo -e ${PATH//:/\\n}"
 alias loadtest="ab -n 100 -c 20 $1"
 alias ddos="ab -n 1000 -c 50 $1"
 
@@ -57,6 +56,10 @@ __git_complete gcm _git_checkout
 # Functions
 
 ## Bash
+path() {
+  echo "${PATH//:/$'\n'}"
+}
+
 pathmunge() {
   if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)"; then
     if [ "$2" = "before" ]; then
@@ -67,8 +70,8 @@ pathmunge() {
   fi
 }
 
-function cpb () {
-    "$@" | pbcopy
+cpb() {
+  "$@" | pbcopy
 }
 
 f() {
