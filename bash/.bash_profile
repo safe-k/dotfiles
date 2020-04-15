@@ -59,10 +59,10 @@ __git_complete gcm _git_checkout
 ## Bash
 pathmunge() {
   if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)"; then
-    if [ "$2" = "after" ]; then
-      PATH="$PATH:$1"
-    else
+    if [ "$2" = "before" ]; then
       PATH="$1:$PATH"
+    else
+      PATH="$PATH:$1"
     fi
   fi
 }
