@@ -7,16 +7,16 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ## Brew
 
+brew tap safe-k/tap
+
 ### Tree https://formulae.brew.sh/formula/tree
 brew install tree
 
 ### fzf https://github.com/junegunn/fzf
 brew install fzf
 
-## Curl (bin)
-
 ### Nav https://github.com/safe-k/nav
-cd "${DIR}/../bin" && curl -OJ https://raw.githubusercontent.com/safe-k/nav/master/nav && cd - || return 1
+brew install nav
 
 # Symlink
 

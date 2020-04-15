@@ -25,7 +25,7 @@ fi
 
 # Nav
 
-source ~/bin/nav.sh
+if [ -f $(brew --prefix)/bin/nav.sh ]; then source $(brew --prefix)/bin/nav.sh; fi
 
 # Prompt (Note: This is done after GIT installation in order to use the __git_ps1 variable)
 export PS1="\[\033[1;33m\]\W\[\033[1;34m\]\$(__git_ps1 ' (%s)')\[\033[1;33m\] >\[\033[0m\] "
