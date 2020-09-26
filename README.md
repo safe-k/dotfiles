@@ -7,7 +7,7 @@ Minimal command line configurations for an OSX development environment.
 The main `install.sh` script will run all other installation scripts (also named `install.sh`) in subdirectories.
 
 ```bash
-git clone git@github.com:safe-k/dotfiles.git ~/.dotfiles
+git clone git@github.com:seifkamal/dotfiles.git ~/.dotfiles
 source ~/.dotfiles/install.sh
 ```
 
