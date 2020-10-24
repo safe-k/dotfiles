@@ -1,13 +1,4 @@
 #!/usr/bin/env bash
-echo "Setting up Git.."
-
-# Check if Git is installed. If not, install it
-git --version 2>&1 >/dev/null
-GIT_IS_AVAILABLE=$?
-if [ $GIT_IS_AVAILABLE -eq 0 ]; then
-  echo "Installing Git.."
-  brew install git
-fi
 
 # Configure Git
 read -p "Configure Git? " -r
@@ -31,5 +22,3 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   git config --global help.autocorrect "1"
 fi
 
-# Install command line auto completion
-brew install bash-completion
