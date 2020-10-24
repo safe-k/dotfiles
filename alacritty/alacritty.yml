@@ -1,0 +1,24 @@
+shell:
+  program: /bin/bash
+  args:
+    - --login
+
+cursor:
+  # Values for `style`:
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Block
+
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
+live_config_reload: true
+
+mouse:
+  url:
+    launcher: open
+
+draw_bold_text_with_bright_colors: true
+
