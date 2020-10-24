@@ -8,4 +8,3 @@ ln -sfv "${DIR}/.vimrc" ~
 
 # Install plugins 
 vim +PlugInstall +qall > /dev/null
-

@@ -10,4 +10,3 @@ brew "shellcheck"
 brew "bash-completion"
 brew "node"
 brew "go"
-

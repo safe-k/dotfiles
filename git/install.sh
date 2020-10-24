@@ -7,18 +7,17 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   echo "Username: "
   read -r username
-  git config --global github.user $username
+  git config --global github.user "$username"
 
   echo "Name: "
   read -r name
-  git config --global user.name $name
+  git config --global user.name "$name"
 
   echo "Email: "
   read -r email
-  git config --global user.email $email
+  git config --global user.email "$email"
 
   git config --global core.editor "vim"
   git config --global core.autocrlf "input"
   git config --global help.autocorrect "1"
 fi
-
