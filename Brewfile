@@ -4,6 +4,7 @@ cask "alacritty"
 cask "google-chrome"
 
 brew "tmux"
+brew "blueutil"
 brew "tree"
 brew "fzf"
 brew "shellcheck"
