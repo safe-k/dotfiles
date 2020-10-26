@@ -14,7 +14,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Maintain undo history between sessions
 set undofile
-set undodir=~/.vim/undodir
+set undodir=~/.vim/undo
 
 " Allow backspace to delete indentation and inserted text
 " i.e. how it works in most programs
