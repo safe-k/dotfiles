@@ -23,3 +23,6 @@ mouse:
     launcher: open
 
 draw_bold_text_with_bright_colors: true
+
+key_bindings:
+    - { key: Key3,     mods: Alt,     chars: "#"                           }
