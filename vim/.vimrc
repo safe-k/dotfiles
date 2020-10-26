@@ -1,10 +1,16 @@
 " Base settings {{{
+set termguicolors
+set background=dark
 syntax enable
 filetype plugin indent on
 set number
 set mouse=a
 set omnifunc=syntaxcomplete#Complete
 set hlsearch incsearch
+
+" Colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Maintain undo history between sessions
 set undofile
@@ -17,10 +23,6 @@ set backspace=indent,eol,start
 " eol     allow backspacing over line breaks (join lines)
 " start   allow backspacing over the start of insert; CTRL-W and CTRL-U
 "        stop once at the start of insert.
-
-if has('termguicolors')
-    set termguicolors
-endif
 " }}}
 
 " Mappings {{{
@@ -50,7 +52,7 @@ augroup END
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
-Plug 'ajmwagar/vim-deus'
+Plug 'levelone/tequila-sunrise.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -58,8 +60,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
-" vim-deus
-silent! colors deus
+" Theme plugin
+silent! colorscheme tequila-sunrise
 
 " syntastic
 set statusline+=%#warningmsg#
