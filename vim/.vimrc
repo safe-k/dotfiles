@@ -12,6 +12,9 @@ set hlsearch incsearch
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" netrw
+let g:netrw_banner = 0 " Turn off banner
+
 " Maintain undo history between sessions
 set undofile
 set undodir=~/.vim/undo
