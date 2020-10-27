@@ -36,6 +36,12 @@ nnoremap <leader>k ddkP
 nnoremap <leader>j ddp
 " }}}
 
+" Editor commands {{{
+function! FormatJSON()
+	execute ":%!jq ."
+endfunction
+" }}}
+
 " Editor auto commands {{{
 augroup filetype_vim
     autocmd!
