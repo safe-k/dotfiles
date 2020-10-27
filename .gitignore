@@ -1,7 +1,4 @@
 # Development
 .idea
 .DS_Store
-
-# Scripts
-bin/*
-!bin/.gitkeep
+*[._]sw[a-p]
