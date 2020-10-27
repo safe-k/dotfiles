@@ -24,6 +24,10 @@ export PS1="\[\033[1;33m\]>\[\033[0m\] "
 
 # Aliases
 ## Bash
+alias vimf="vim \$(fzf)"
+alias vimedit="vim ~/.vimrc"
+alias tmuxedit="vim ~/.tmux.conf"
+alias alacedit="vim ~/.config/alacritty/alacritty.yml"
 alias bashedit="vim ~/.bash_profile"
 alias bashsrc="source ~/.bash_profile"
 ## Git
