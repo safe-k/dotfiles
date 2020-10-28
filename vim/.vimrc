@@ -1,8 +1,7 @@
 " Base settings {{{
-set termguicolors
-set background=dark
 syntax enable
 filetype plugin indent on
+set termguicolors
 set number
 set mouse=a
 set omnifunc=syntaxcomplete#Complete
@@ -61,7 +60,7 @@ augroup END
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
-Plug 'levelone/tequila-sunrise.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -70,7 +69,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " Theme plugin
-silent! colorscheme tequila-sunrise
+let g:material_theme_style = 'ocean'
+silent! colorscheme material
+highlight! Normal ctermfg=white
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -89,3 +90,4 @@ let g:go_auto_type_info = 1 " Automatically get signature/type info for object u
 let g:go_def_mode='gopls' " Use gopls as LSP
 let g:go_info_mode='gopls'
 " }}}
+
