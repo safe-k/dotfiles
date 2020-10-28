@@ -50,6 +50,14 @@ pathmunge() {
     fi
   fi
 }
+google() {
+  if [ -z "${*}" ]; then
+    echo "Query is empty"
+    return 1
+  fi
+
+  open "https://google.com/search?q=${*}"
+}
 
 # Load Local bash profile (Note: This is done last in order to allow overrides)
 if [ -f ~/.bash_profile.local ]; then
