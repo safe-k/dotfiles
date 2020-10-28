@@ -5,6 +5,14 @@ shell:
     - -c
     - "tmux attach || tmux"
 
+font:
+  size: 12
+  normal:
+    family: monospace
+    style: Regular
+  offset:
+    y: 1
+
 cursor:
   # Values for `style`:
   #   - ▇ Block
@@ -25,4 +33,4 @@ mouse:
 draw_bold_text_with_bright_colors: true
 
 key_bindings:
-    - { key: Key3,     mods: Alt,     chars: "#"                           }
+    - { key: Key3, mods: Alt, chars: "#" }
