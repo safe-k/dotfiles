@@ -79,6 +79,7 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'itspriddle/vim-shellcheck'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
