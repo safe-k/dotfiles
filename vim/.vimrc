@@ -40,7 +40,7 @@ nnoremap <leader>j ddp
 
 " Editor commands {{{
 function! FormatJSON()
-	execute ":%!jq ."
+    execute ":%!jq ."
 endfunction
 " }}}
 
@@ -52,16 +52,30 @@ augroup filetype_vim
 augroup END
 
 augroup completion
-  autocmd!
-  " Close preview after autocomplete selection
-  autocmd CompleteDone * pclose
+    autocmd!
+    " Close preview after autocomplete selection
+    autocmd CompleteDone * pclose
 augroup END
+
+" Quickfix item highlighting
+sign define notice text=>>
+
+function! s:MarkQFItems()
+    sign unplace *
+    for item in getqflist()
+        execute printf("sign place %d line=%d name=notice", item.lnum, item.lnum)
+    endfor
+endfunction
+
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost * call s:MarkQFItems()
+augroup end
 " }}}
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -73,21 +87,15 @@ let g:material_theme_style = 'ocean'
 silent! colorscheme material
 highlight! Normal ctermfg=white
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-
 " vim-go
 let g:go_fmt_command = 'goimports' " Run goimports along gofmt on each save
 let g:go_auto_type_info = 1 " Automatically get signature/type info for object under cursor
-let g:go_def_mode='gopls' " Use gopls as LSP
-let g:go_info_mode='gopls'
+let g:go_auto_sameids = 1
+let g:go_updatetime = 400
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+augroup filetype_go
+    autocmd!
+    autocmd BufWritePost *.go :GoBuild
+augroup end
 " }}}
 
