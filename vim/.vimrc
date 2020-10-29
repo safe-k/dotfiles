@@ -83,20 +83,29 @@ Plug 'itspriddle/vim-shellcheck'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
-" Theme plugin
+" Theme plugin {{{
 let g:material_theme_style = 'ocean'
 silent! colorscheme material
 highlight! Normal ctermfg=white
+" }}}
 
-" vim-go
+" vim-go {{{
 let g:go_fmt_command = 'goimports' " Run goimports along gofmt on each save
 let g:go_auto_type_info = 1 " Automatically get signature/type info for object under cursor
 let g:go_auto_sameids = 1
 let g:go_updatetime = 400
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+
 augroup filetype_go
     autocmd!
     autocmd BufWritePost *.go :GoBuild
 augroup end
+" }}}
 " }}}
 
