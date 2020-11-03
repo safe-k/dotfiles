@@ -3,6 +3,7 @@ cask_args appdir: "/Applications"
 cask "alacritty"
 cask "google-chrome"
 
+brew "neovim"
 brew "tmux"
 brew "blueutil"
 brew "tree"

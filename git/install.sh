@@ -17,7 +17,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   read -r email
   git config --global user.email "$email"
 
-  git config --global core.editor "vim"
   git config --global core.autocrlf "input"
   git config --global help.autocorrect "1"
 fi

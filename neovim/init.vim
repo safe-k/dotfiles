@@ -1,30 +1,12 @@
 " Base settings {{{
-syntax enable
-filetype plugin indent on
 set termguicolors
 set number
 set mouse=a
+set undofile
 set omnifunc=syntaxcomplete#Complete
-set hlsearch incsearch
-
-" Colors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " netrw
 let g:netrw_banner = 0 " Turn off banner
-
-" Maintain undo history between sessions
-set undofile
-set undodir=~/.vim/undo
-
-" Allow backspace to delete indentation and inserted text
-" i.e. how it works in most programs
-set backspace=indent,eol,start
-" indent  allow backspacing over autoindent
-" eol     allow backspacing over line breaks (join lines)
-" start   allow backspacing over the start of insert; CTRL-W and CTRL-U
-"        stop once at the start of insert.
 " }}}
 
 " Mappings {{{

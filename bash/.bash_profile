@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-export EDITOR=vim
+# Set Neovim as global editor
+VISUAL=nvim
+EDITOR="${VISUAL}"
 
 # History
 ## Bind arrow keys to history search functions
