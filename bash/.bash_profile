@@ -28,7 +28,7 @@ export PS1="\[\033[1;33m\]>\[\033[0m\] "
 ## Vim
 alias vim="nvim"
 alias vimf="vim \$(fzf)"
-alias vimedit="vim ~/.vimrc"
+alias vimedit="vim ~/.config/nvim/init.vim"
 ## Tmux
 alias tmuxedit="vim ~/.tmux.conf"
 ## Alacritty
