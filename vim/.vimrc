@@ -29,6 +29,7 @@ set backspace=indent,eol,start
 
 " Mappings {{{
 inoremap jk <esc>
+nnoremap <leader>w :w<cr>
 nnoremap <leader>/ :nohlsearch<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -39,9 +40,8 @@ nnoremap <leader>j ddp
 " }}}
 
 " Editor commands {{{
-function! FormatJSON()
-    execute ":%!jq ."
-endfunction
+command! FilePath echo expand('%:p')
+command! FormatJSON execute ":%!jq ."
 " }}}
 
 " Editor auto commands {{{
