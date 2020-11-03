@@ -25,11 +25,16 @@ fi
 export PS1="\[\033[1;33m\]>\[\033[0m\] "
 
 # Aliases
-## Bash
+## Vim
+alias vim="nvim"
 alias vimf="vim \$(fzf)"
 alias vimedit="vim ~/.vimrc"
+## Tmux
 alias tmuxedit="vim ~/.tmux.conf"
+## Alacritty
 alias alacedit="vim ~/.config/alacritty/alacritty.yml"
+## Bash
+alias ls="ls -la"
 alias bashedit="vim ~/.bash_profile"
 alias bashsrc="source ~/.bash_profile"
 ## Git
@@ -37,6 +42,8 @@ alias gs="git status"
 __git_complete gs _git_status
 alias gb="git branch"
 __git_complete gb _git_branch
+## Tree
+alias tr="tree -a -I '.git|node_modules|vendor'"
 
 # Functions
 ## Bash
