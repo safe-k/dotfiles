@@ -56,11 +56,14 @@ augroup end
 " }}}
 
 " Plugins {{{
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
+" Theme
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'jiangmiao/auto-pairs'
+" Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Code
+Plug 'jiangmiao/auto-pairs'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
