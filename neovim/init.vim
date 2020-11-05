@@ -4,6 +4,7 @@ set number
 set mouse=a
 set undofile
 set omnifunc=syntaxcomplete#Complete
+set fillchars=eob:.
 
 " netrw
 let g:netrw_banner = 0 " Turn off banner
@@ -62,16 +63,31 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Utilities
+Plug 'itchyny/lightline.vim'
 " Code
 Plug 'jiangmiao/auto-pairs'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
+" Status bar plugin {{{
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'material_vim',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'filetype' ] ]
+      \ },
+      \ }
+" }}}
+
 " Theme plugin {{{
 let g:material_theme_style = 'ocean'
 silent! colorscheme material
-highlight! Normal ctermfg=white
+highlight! Normal guifg=white
 " }}}
 
 " vim-go {{{
@@ -94,4 +110,3 @@ augroup filetype_go
 augroup end
 " }}}
 " }}}
-
