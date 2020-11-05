@@ -67,6 +67,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 " Code
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
