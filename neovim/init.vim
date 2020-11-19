@@ -20,6 +20,7 @@ nnoremap <leader>f :FZF<cr>
 nnoremap <leader>e :Ex<cr>
 nnoremap <leader>k ddkP
 nnoremap <leader>j ddp
+vnoremap <leader>y "+y
 " }}}
 
 " Editor commands {{{
