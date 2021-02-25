@@ -1,74 +1,58 @@
 #!/usr/bin/env bash
+source "$(brew --prefix)/etc/bash_completion"
+export PS1="\[\033[1;33m\]$\[\033[0m\] "
 
-# Set Neovim as global editor
-VISUAL=nvim
-EDITOR="${VISUAL}"
-
-# History
-## Bind arrow keys to history search functions
-if [[ $- == *i* ]]; then
+export HISTSIZE='' # Infinite history
+export HISTCONTROL='ignoredups:erasedups' # Avoid history duplicates
+if [[ $- == *i* ]]; then # Bind arrow keys to history search functions
   bind '"\e[A": history-search-backward'
   bind '"\e[B": history-search-forward'
 fi
-## Infinite history
-export HISTSIZE=""
-## Avoid duplicates
-export HISTCONTROL=ignoredups:erasedups
 
-# Git
-## Load command line auto completion
-if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-  source "$(brew --prefix)/etc/bash_completion"
-fi
+alias bashedit="\${EDITOR} ~/.bash_profile"
+alias basheditloc="\${EDITOR} \${HOME}/.bash_profile.local"
+alias bashsrc='source ~/.bash_profile'
+alias ls='ls -la'
 
-# Prompt
-export PS1="\[\033[1;33m\]>\[\033[0m\] "
-
-# Aliases
-## Vim
-alias vim="nvim"
-alias vimf="vim \$(fzf)"
-alias vimedit="vim ~/.config/nvim/init.vim"
-## Tmux
-alias tmuxedit="vim ~/.tmux.conf"
-## Alacritty
-alias alacedit="vim ~/.config/alacritty/alacritty.yml"
-## Bash
-alias ls="ls -la"
-alias bashedit="vim ~/.bash_profile"
-alias bashsrc="source ~/.bash_profile"
-## Git
-alias gs="git status"
-__git_complete gs _git_status
-alias gb="git branch"
-__git_complete gb _git_branch
-## Tree
-alias tr="tree -a -I '.git|node_modules|vendor'"
-
-# Functions
-## Bash
-path() {
-  echo "${PATH//:/$'\n'}"
+path() { echo "${PATH//:/$'\n'}"; }
+path_append() {
+  { ! echo "${PATH}" | grep -Eq "(^|:)$1($|:)"; } && PATH="${PATH}:$1"
 }
-pathmunge() {
-  if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)"; then
-    if [ "$2" = "before" ]; then
-      PATH="$1:$PATH"
-    else
-      PATH="$PATH:$1"
-    fi
-  fi
-}
-google() {
-  if [ -z "${*}" ]; then
-    echo "Query is empty"
-    return 1
-  fi
 
-  open "https://google.com/search?q=${*}"
+{ # Tools
+  # alacritty + tmux
+  alias alacedit="\${EDITOR} ~/.config/alacritty/alacritty.yml"
+  alias tmuxedit="\${EDITOR} ~/.tmux.conf"
+  # git
+  alias gs='git status'; __git_complete gs _git_status
+  alias gb='git branch'; __git_complete gb _git_branch
+  alias gc='git checkout'; __git_complete gc _git_checkout
+  alias gl='git log --graph --oneline --decorate'; __git_complete gl _git_log
+  # neovim
+  export EDITOR='nvim'
+  export VISUAL="\${EDITOR}"
+  alias vimedit="\${EDITOR} ~/.config/nvim/init.vim"
+  vim() { nvim "${1:-.}"; }
+  # fzf + ripgrep
+  export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+  export FZF_DEFAULT_OPTS='--height 40% --layout reverse --info inline --border'
+  ff() {
+    local res; res="$(fzf --preview 'cat {}')" \
+      && [[ -n "${res}" ]] \
+      && "${EDITOR}" "${res}"
+  }
+  # man
+  man() { # Colorise pages
+    LESS_TERMCAP_mb=$'\e[1;32m' \
+    LESS_TERMCAP_md=$'\e[1;32m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[1;4;31m' \
+    command man "$@"
+  }
 }
 
 # Load Local bash profile (Note: This is done last in order to allow overrides)
-if [ -f ~/.bash_profile.local ]; then
-  source ~/.bash_profile.local
-fi
+[[ ! -f ~/.bash_profile.local ]] || source ~/.bash_profile.local

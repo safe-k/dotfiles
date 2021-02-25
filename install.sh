@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 
-echo "Staring installation.."
+echo 'Staring installation..'
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+declare DOT_DIR; DOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" || exit 1
 
-brew update
-brew bundle
+{ brew update && brew bundle; } || exit 1 
 
-for directory in $DIR/*; do
-  if [ -d "$directory" ]; then
-    for file in $(find "$directory" -type f -name "install.sh"); do
-      source "$file"
+for directory in ${DOT_DIR}/*; do
+  if [ -d "${directory}" ]; then
+    for file in $(find "${directory}" -type f -name 'install.sh'); do
+      source "${file}"
     done
   fi
 done
 
-echo "Installation complete."
+echo 'Installation complete.'

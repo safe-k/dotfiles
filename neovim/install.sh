@@ -14,4 +14,4 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ln -sfv "${DIR}/init.vim" "${CONFIG_PATH}/init.vim"
 
 # Install plugins 
-nvim +PlugInstall +qall > /dev/null
+nvim +PlugInstall +qall >/dev/null
